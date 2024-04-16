@@ -26,6 +26,7 @@ func NewProxy() *GoProxy {
 	}
 }
 
+// proxy logic
 func (g *GoProxy) ProxyAddressRequest(w http.ResponseWriter, r *http.Request) {
 	// set target url
 	proxyAddress := g.GetAddressByUrl(r.URL.Path)
@@ -49,6 +50,7 @@ func (g *GoProxy) ProxyAddressRequest(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// get proxy address from url
 func (g *GoProxy) GetAddressByUrl(url string) string {
 	parts := strings.Split(url, "/")
 	if len(parts) > 2 {
@@ -57,6 +59,7 @@ func (g *GoProxy) GetAddressByUrl(url string) string {
 	return ""
 }
 
+// replace url prefix
 func (g *GoProxy) SubPrefix(url string, proxyAddress string) string {
 	prefix := "/proxy/" + proxyAddress[len("http://"):]
 	if len(url) >= len(prefix) {
