@@ -3,6 +3,7 @@ module go-proxy
 go 1.19
 
 require (
+	github.com/BurntSushi/toml v1.3.2
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/sirupsen/logrus v1.9.3
 )
